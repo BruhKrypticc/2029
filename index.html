@@ -4,56 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jefferson for Class Vice President</title>
-  
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
-    @font-face {
-      font-family: 'Mangold';
-      src: url('./mangold.ttf') format('truetype');
-    }
-
-    h1 {
+    h1, h2, h3 {
       font-family: 'Bebas Neue', sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.5px;
     }
 
-    h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-
-    h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-weight: 600;
-      font-size: 1.8rem;
-      letter-spacing: -0.5px;
-    }
-
-    p {
+    p, .btn, .nav-item, .label {
       font-family: 'Roboto Mono', monospace;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
-    body{
+    body {
       background:black;
       color:white;
       overflow-x:hidden;
     }
 
-    section{
+    /* DOT BACKGROUND */
+    .bg-dots {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .dot {
+      position:absolute;
+      width:4px;
+      height:4px;
+      background:white;
+      border-radius:50%;
+      opacity:0.15;
+      animation: float 10s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity:0.1; }
+      100% { transform: translateY(-120vh); opacity:0; }
+    }
+
+    section {
       min-height:100vh;
       display:flex;
       flex-direction:column;
@@ -61,228 +57,251 @@
       align-items:center;
       text-align:center;
       padding:40px;
-      scroll-margin-top: 40px;
+      position:relative;
+      z-index:1;
     }
 
-    /* HERO BACKGROUND (NEW) */
-    .hero {
-      position: relative;
-      overflow: hidden;
-    }
+    h1 { font-size:10rem; }
+    h2 { font-size:2.5rem; margin-bottom:20px; }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08), transparent 40%),
-                  radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06), transparent 45%);
-      animation: floatBG 10s ease-in-out infinite alternate;
-      pointer-events: none;
-    }
-
-    @keyframes floatBG {
-      0% {
-        transform: translateY(0px) scale(1);
-        filter: blur(0px);
-      }
-      100% {
-        transform: translateY(-25px) scale(1.05);
-        filter: blur(1px);
-      }
-    }
-
-    .hero-img {
-      max-width: 85%;
-      width: 800px;
-      height: auto;
-      display: block;
-      margin-bottom: 20px;
-      animation: fadeDown 1.2s ease;
-      z-index: 1;
-    }
-
-    h1{
-      font-size:10rem;
-      white-space: nowrap;
-      animation: fadeDown 1.2s ease;
-      z-index: 1;
-    }
-
-    h2{
-      font-size:2.5rem;
-      margin-bottom:20px;
-      opacity:0.9;
-      z-index: 1;
-    }
-
-    p{
+    p {
       max-width:700px;
       line-height:1.7;
-      font-size:1.1rem;
       color:#d4d4d4;
-      z-index: 1;
     }
 
-    .btn{
+    .btn {
       margin-top:30px;
       padding:15px 40px;
       border:2px solid white;
       color:white;
       text-decoration:none;
       transition:0.3s;
-      position:relative;
-      overflow:hidden;
-      z-index: 1;
+      text-transform:uppercase;
+      letter-spacing:1px;
     }
 
-    .btn:hover{
+    .btn:hover {
       background:white;
       color:black;
       transform:scale(1.05);
     }
 
-    .promises{
-      background:white;
-      color:black;
-    }
+    /* PROMISES */
+    .promises { background:white; color:black; }
+    .promises p { color:#333; }
 
-    .promises p{
-      color:#333;
-    }
-
-    .cards{
+    .cards {
       display:flex;
       gap:25px;
-      margin-top:40px;
       flex-wrap:wrap;
       justify-content:center;
+      margin-top:40px;
     }
 
-    .card{
+    .card {
       width:240px;
       padding:30px;
       border:2px solid black;
-      transition:0.4s;
-      transform:translateY(40px);
       opacity:0;
+      transform:translateY(40px);
+      transition:0.4s;
     }
 
-    .card p {
-      transition: color 0.3s ease;
-    }
-
-    .card.show{
-      transform:translateY(0);
+    .card.show {
       opacity:1;
+      transform:translateY(0);
     }
 
-    .card:hover{
+    .card:hover {
       background:black;
       color:white;
       border-color:white;
-      transform:translateY(-8px);
     }
 
-    .card:hover p{
-      color:white;
+    /* ELECTION */
+    .election { background:#0a0a0a; }
+
+    .election-content {
+      margin-top:20px;
+      max-width:700px;
+      padding:30px;
+      border-left:2px solid white;
+      border-right:2px solid white;
+      text-align:left;
     }
 
-    .card:hover h3{
-      color:white;
+    .date h3 {
+      font-size:2.5rem;
+      margin-bottom:10px;
     }
 
-    footer{
+    /* FOOTER */
+    footer {
       padding:30px;
       text-align:center;
-      border-top:1px solid #222;
       color:#888;
-      background:black;
+      border-top:1px solid #222;
     }
 
-    @keyframes fadeDown{
-      from{
-        opacity:0;
-        transform:translateY(-50px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
+    /* NAV BAR */
+    .bottom-nav {
+      position:fixed;
+      bottom:20px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      gap:18px;
+      padding:12px 18px;
+      background:rgba(20,20,20,0.85);
+      border:1px solid rgba(255,255,255,0.2);
+      border-radius:999px;
+      backdrop-filter:blur(10px);
+      z-index:999;
+    }
+
+    .nav-item {
+      position:relative;
+      width:44px;
+      height:44px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      transition:0.25s;
+    }
+
+    .nav-item img {
+      width:22px;
+      height:22px;
+      object-fit:contain;
+    }
+
+    .nav-item:hover {
+      background:white;
+      transform:translateY(-3px);
+    }
+
+    .label {
+      position:absolute;
+      bottom:55px;
+      background:white;
+      color:black;
+      padding:6px 10px;
+      font-size:12px;
+      border-radius:6px;
+      opacity:0;
+      transform:translateY(10px);
+      transition:0.2s;
+      white-space:nowrap;
+      pointer-events:none;
+    }
+
+    .nav-item:hover .label {
+      opacity:1;
+      transform:translateY(0);
     }
 
     @media(max-width:700px){
-      .hero-img {
-        width: 95%;
-      }
-
-      h1{
-        font-size:5rem;
-        white-space: normal;
-      }
-
-      h2{
-        font-size:1.8rem;
-      }
+      h1{font-size:5rem;}
+      h2{font-size:1.8rem;}
     }
   </style>
 </head>
 
 <body>
 
-  <section class="hero">
-    <img src="Untitled411_20260529123840.PNG" alt="Jefferson" class="hero-img">
-    <h2>For Vice President</h2>
+<div class="bg-dots" id="bg"></div>
 
-    <p>
-      Transparency and communication within our student government.
-    </p>
+<!-- HERO -->
+<section id="top">
+  <h2>For Vice President</h2>
+  <p>Transparency and communication within our student government.</p>
+  <a class="btn" href="#promises">Policies</a>
+</section>
 
-    <a href="#promises" class="btn">Policies</a>
-  </section>
+<!-- AGENDA -->
+<section class="promises" id="promises">
+  <h2>Policies and Agenda</h2>
 
-  <section class="promises" id="promises">
-    <h1 style="font-size:3rem;">Policies and Agenda</h1>
-
-    <div class="cards">
-      <div class="card">
-        <h3>01. Transparency</h3>
-        <br>
-        <p>Make meeting notes from student government meetings accessible.</p>
-      </div>
-
-      <div class="card">
-        <h3>02. Communication</h3>
-        <br>
-        <p>Create a student body-government relationship that communicates and receives input.</p>
-      </div>
-
-      <div class="card">
-        <h3>03. Representation</h3>
-        <br>
-        <p>Voice opinions of underrepresented groups within the school.</p>
-      </div>
+  <div class="cards">
+    <div class="card">
+      <h3>Transparency</h3>
+      <p>Make meeting notes accessible.</p>
     </div>
-  </section>
 
-  <footer>
-    Created by Jefferson Rojop
-  </footer>
+    <div class="card">
+      <h3>Communication</h3>
+      <p>Create student-government feedback loops.</p>
+    </div>
 
-  <script>
-    const cards = document.querySelectorAll('.card');
+    <div class="card">
+      <h3>Representation</h3>
+      <p>Amplify underrepresented voices.</p>
+    </div>
+  </div>
+</section>
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('show');
-        }
-      });
+<!-- ELECTION -->
+<section class="election" id="election">
+  <h2>Election Day</h2>
+
+  <div class="election-content">
+    <div class="date">
+      <h3>June 8th</h3>
+    </div>
+    <p>
+      Vote for leadership, transparency, and stronger student representation.
+    </p>
+  </div>
+</section>
+
+<footer>
+  Created by Jefferson Rojop
+</footer>
+
+<!-- NAV BAR -->
+<nav class="bottom-nav">
+
+  <a href="#top" class="nav-item">
+    <img src="home.png" alt="Home">
+    <span class="label">Home</span>
+  </a>
+
+  <a href="#promises" class="nav-item">
+    <img src="Icon-Clipboard-White.webp" alt="Agenda">
+    <span class="label">Agenda</span>
+  </a>
+
+  <a href="#election" class="nav-item">
+    <img src="star-white-icon.webp" alt="Vote">
+    <span class="label">Vote</span>
+  </a>
+
+</nav>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting) e.target.classList.add('show');
     });
+  });
 
-    cards.forEach(card => {
-      observer.observe(card);
-    });
-  </script>
+  cards.forEach(c => observer.observe(c));
+
+  const bg = document.getElementById("bg");
+
+  for(let i=0;i<40;i++){
+    const dot=document.createElement("div");
+    dot.classList.add("dot");
+    dot.style.left=Math.random()*100+"vw";
+    dot.style.top=Math.random()*100+"vh";
+    dot.style.animationDuration=(5+Math.random()*10)+"s";
+    bg.appendChild(dot);
+  }
+</script>
 
 </body>
 </html>
