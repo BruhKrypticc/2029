@@ -16,25 +16,30 @@
 
     h1 {
        font-family: 'Bebas Neue', sans-serif;
-       font-weight: 800; /* Black */
+       font-weight: 800;
        letter-spacing: -0.5px;
     }
 
     h2 {
        font-family: 'Bebas Neue', sans-serif;
-       font-weight: 700; /* Bold */
+       font-weight: 700;
        letter-spacing: -0.5px; 
     }
 
     h3 {
       font-family: 'Bebas Neue', sans-serif;
-      font-weight: 600; /* Semibold */
+      font-weight: 600;
       font-size: 1.8rem;   
       letter-spacing: -0.5px;
     }
 
     p {
       font-family: 'Roboto Mono', monospace;
+    }
+
+    /* ✅ Smooth scrolling added */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 
@@ -60,9 +65,11 @@
       align-items:center;
       text-align:center;
       padding:40px;
+
+      /* optional polish */
+      scroll-margin-top: 40px;
     }
 
-    /* Styling for the header image replacement */
     .hero-img {
       max-width: 85%;
       width: 800px;
@@ -74,12 +81,12 @@
 
     h1{
       font-size:10rem;
-      white-space: nowrap; /* Prevents name from breaking onto two lines */
+      white-space: nowrap;
       animation: fadeDown 1.2s ease;
     }
 
     h2{
-      font-size:2.5rem; /* Slightly increased to fit the Bebas Neue style nicely */
+      font-size:2.5rem;
       margin-bottom:20px;
       opacity:0.9;
     }
@@ -149,6 +156,10 @@
       opacity:0;
     }
 
+    .card p {
+      transition: color 0.3s ease;
+    }
+
     .card.show{
       transform:translateY(0);
       opacity:1;
@@ -157,8 +168,16 @@
     .card:hover{
       background:black;
       color:white;
-      border-color: white; 
+      border-color:white;
       transform:translateY(-8px);
+    }
+
+    .card:hover p{
+      color:white;
+    }
+
+    .card:hover h3{
+      color:white;
     }
 
     footer{
@@ -197,7 +216,7 @@
 
     @media(max-width:700px){
       .hero-img {
-        width: 95%; /* Adjusts the header image to fit beautifully on phones */
+        width: 95%;
       }
 
       h1{
@@ -211,6 +230,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <section class="hero">
@@ -231,25 +251,19 @@
       <div class="card">
         <h3>01. Transparency</h3>
         <br>
-        <p>
-          Make meeting notes from student government meetings accessible.
-        </p>
+        <p>Make meeting notes from student government meetings accessible.</p>
       </div>
 
       <div class="card">
         <h3>02. Communication</h3>
         <br>
-        <p>
-          Create a student body-government relationship that communicates and receives input.
-        </p>
+        <p>Create a student body-government relationship that communicates and receives input.</p>
       </div>
 
       <div class="card">
         <h3>03. Representation</h3>
         <br>
-        <p>
-          Voice opinions of underrepresented groups within the school.
-        </p>
+        <p>Voice opinions of underrepresented groups within the school.</p>
       </div>
     </div>
   </section>
