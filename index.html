@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jefferson for Class Vice President</title>
   
+  <style>
+    @font-face {
+      font-family: 'Extenda';
+      src: url('./Extenda 30 Deca.ttf') format('truetype');
+    }
 
-<style>
-  @font-face {
-    font-family: 'Extenda';
-      src: url('./Extenda 30 Deca.ttf') ('truetype');
-  }
-
-  h1 {
-    font-family: 'Extenda', sans-serif;
-  }
-</style>
+    h1 {
+      font-family: 'Extenda', sans-serif;
+    }
+  </style>
 
   <style>
     *{
@@ -42,8 +41,9 @@
     }
 
     h1{
-      font-size:12rem;
-      letter-spacing:0px;
+      font-size:16rem; /* Increased from 12rem */
+      letter-spacing:-2px; /* Tighter tracking for large display text */
+      white-space: nowrap; /* Prevents name from breaking onto two lines */
       animation: fadeDown 1.2s ease;
     }
 
@@ -165,7 +165,8 @@
 
     @media(max-width:700px){
       h1{
-        font-size:3rem;
+        font-size:5rem; /* Increased from 3rem */
+        white-space: normal;
       }
 
       h2{
@@ -181,7 +182,7 @@
     <h2>For Vice President</h2>
 
     <p>
-Transparency and communication within our student government.
+      Transparency and communication within our student government.
     </p>
 
     <a href="#promises" class="btn">See My Promises</a>
