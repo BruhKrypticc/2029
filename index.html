@@ -6,8 +6,8 @@
   <title>Jefferson for Class Vice President</title>
   
   <style>
-    /* Importing Bebas Neue from Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    /* Importing Bebas Neue and Roboto Mono from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
     @font-face {
       font-family: 'Mangold';
@@ -20,7 +20,19 @@
 
     h2 {
        font-family: 'Bebas Neue', sans-serif;
-       letter-spacing: 0px; /* Adds clean spacing typical for Bebas Neue */
+       letter-spacing: 0px; 
+    }
+
+    /* Style updates for h3 and paragraphs */
+    h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: normal; /* Removes default bolding */
+      font-size: 1.8rem;   /* Sized for clean readability inside cards */
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-family: 'Roboto Mono', monospace; /* Changes text to Roboto Mono */
     }
   </style>
 
@@ -145,6 +157,7 @@
     .card:hover{
       background:black;
       color:white;
+      border-color: white; /* Clean border color swap on hover */
       transform:translateY(-8px);
     }
 
@@ -208,7 +221,7 @@
       Transparency and communication within our student government.
     </p>
 
-    <a href="#promises" class="btn">Policies </a>
+    <a href="#promises" class="btn">Policies</a>
   </section>
 
   <section class="promises" id="promises">
@@ -227,7 +240,7 @@
         <h3>Communication</h3>
         <br>
         <p>
-          Create a student body-goverment relationship that communicates and receives input.
+          Create a student body-government relationship that communicates and receives input.
         </p>
       </div>
 
@@ -263,3 +276,5 @@
 
 </body>
 </html>
+
+
