@@ -14,6 +14,10 @@
     h1 {
       font-family: 'Mangold', sans-serif;
     }
+
+    h2 {
+       font-family: 'Mangold', sans-serif;
+    }
   </style>
 
   <style>
@@ -38,6 +42,16 @@
       align-items:center;
       text-align:center;
       padding:40px;
+    }
+
+    /* Styling for the header image replacement */
+    .hero-img {
+      max-width: 85%;
+      width: 800px;
+      height: auto;
+      display: block;
+      margin-bottom: 20px;
+      animation: fadeDown 1.2s ease;
     }
 
     h1{
@@ -164,8 +178,12 @@
     }
 
     @media(max-width:700px){
+      .hero-img {
+        width: 95%; /* Adjusts the header image to fit beautifully on phones */
+      }
+
       h1{
-        font-size:5rem; /* Increased from 3rem */
+        font-size:5rem;
         white-space: normal;
       }
 
@@ -178,7 +196,7 @@
 <body>
 
   <section class="hero">
-    <h1>JEFFERSON</h1>
+    <img src="Untitled411_20260529123840.PNG" alt="Jefferson" class="hero-img">
     <h2>For Vice President</h2>
 
     <p>
