@@ -1,350 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jefferson for Class Vice President</title>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    h1, h2, h3 {
-      font-family: 'Bebas Neue', sans-serif;
-    }
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:wght@100..700&display=swap" rel="stylesheet">
 
-    p, .btn, .nav-item, .label {
-      font-family: 'Roboto Mono', monospace;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    * {
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    body {
-      background:black;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    /* BACKGROUND DOTS */
-    .bg-dots {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .dot {
-      position:absolute;
-      width:4px;
-      height:4px;
-      background:white;
-      border-radius:50%;
-      opacity:0.15;
-      animation: float 10s linear infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); opacity:0.1; }
-      100% { transform: translateY(-120vh); opacity:0; }
-    }
-
-    section {
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding:40px;
-      position:relative;
-      z-index:1;
-    }
-
-    h2 { font-size:2.5rem; margin-bottom:20px; }
-
-    p {
-      max-width:700px;
-      line-height:1.7;
-      color:#d4d4d4;
-    }
-
-    .hero-img {
-      max-width: 85%;
-      width: 800px;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      margin-top:30px;
-      padding:15px 40px;
-      border:2px solid white;
-      color:white;
-      text-decoration:none;
-      transition:0.3s;
-      text-transform:uppercase;
-      letter-spacing:1px;
-    }
-
-    .btn:hover {
-      background:white;
-      color:black;
-      transform:scale(1.05);
-    }
-
-    /* PROMISES */
-    .promises {
-      background:white;
-      color:black;
-    }
-
-    .promises p {
-      color:#333;
-    }
-
-    .cards {
-      display:flex;
-      gap:25px;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-top:40px;
-    }
-
-    .card {
-      width:240px;
-      padding:30px;
-      border:2px solid black;
-      opacity:0;
-      transform:translateY(40px);
-      transition:0.4s;
-    }
-
-    .card.show {
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    /* ✅ CARD HOVER FIX */
-    .card:hover {
-      background:black;
-      color:white;
-      border-color:white;
-      transform:translateY(-8px);
-    }
-
-    .card p {
-      transition: 0.3s ease;
-      color:#333;
-    }
-
-    .card:hover p {
-      color:white;
-    }
-
-    .card:hover h3 {
-      color:white;
-    }
-
-    /* ELECTION */
-    .election {
-      background:#0a0a0a;
-    }
-
-    .election-content {
-      margin-top:20px;
-      max-width:700px;
-      padding:30px;
-      border-left:2px solid white;
-      border-right:2px solid white;
-      text-align:left;
-    }
-
-    .date h3 {
-      font-size:2.5rem;
-      margin-bottom:10px;
-    }
-
-    footer {
-      padding:30px;
-      text-align:center;
-      color:#888;
-      border-top:1px solid #222;
-    }
-
-    /* NAV BAR */
-    .bottom-nav {
-      position:fixed;
-      bottom:20px;
-      left:50%;
-      transform:translateX(-50%);
-      display:flex;
-      gap:18px;
-      padding:12px 18px;
-      background:rgba(20,20,20,0.85);
-      border:1px solid rgba(255,255,255,0.2);
-      border-radius:999px;
-      backdrop-filter:blur(10px);
-      z-index:999;
-    }
-
-    .nav-item {
-      position:relative;
-      width:44px;
-      height:44px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:50%;
-      transition:0.25s ease;
-    }
-
-    .nav-item img {
-      width:22px;
-      height:22px;
-      object-fit:contain;
-      transition:0.25s ease;
-    }
-
-    .nav-item:hover img {
-      filter: brightness(0);
-      transform: scale(1.1);
-    }
-
-    .nav-item:hover {
-      background:white;
-      transform:translateY(-3px);
-    }
-
-    .label {
-      position:absolute;
-      bottom:55px;
-      background:white;
-      color:black;
-      padding:6px 10px;
-      font-size:12px;
-      border-radius:6px;
-      opacity:0;
-      transform:translateY(10px);
-      transition:0.2s;
-      white-space:nowrap;
-      pointer-events:none;
-    }
-
-    .nav-item:hover .label {
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    @media(max-width:700px){
-      h2{font-size:1.8rem;}
-      .hero-img{width:95%;}
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="bg-dots" id="bg"></div>
+  <!-- HERO -->
+  <section id="top" class="hero">
 
-<!-- HERO -->
-<section id="top">
-  <img src="Untitled411_20260529123840.PNG" class="hero-img">
+    <img
+      src="Untitled411_20260529123840.PNG"
+      alt="Jefferson Campaign Poster"
+      class="hero-img"
+    >
 
-  <h2>For Vice President</h2>
+    <h2>For Vice President</h2>
 
-  <p>
-    Transparency and communication within our student government.
-  </p>
-
-  <a class="btn" href="#promises">Policies</a>
-</section>
-
-<!-- PROMISES -->
-<section class="promises" id="promises">
-  <h2>Policies and Agenda</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Transparency</h3>
-      <p>Make meeting notes accessible as record with help of secretary.</p>
-    </div>
-
-    <div class="card">
-      <h3>Communication</h3>
-      <p>Student goverment-body connection that takes input from students.</p>
-    </div>
-
-    <div class="card">
-      <h3>Representation</h3>
-      <p>Amplify underrepresented voices within our school.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ELECTION -->
-<section class="election" id="election">
-  <h2>Election Day</h2>
-
-  <div class="election-content">
-    <div class="date">
-      <h3>June 8th</h3>
-    </div>
     <p>
-      Vote for leadership, transparency, and stronger student representation.
+      Transparency and communication within our student government.
     </p>
-  </div>
-</section>
 
-<footer>
-  Created by Jefferson Rojop
-</footer>
+    <a href="#promises" class="btn">
+      Policies
+    </a>
 
-<!-- NAV -->
-<nav class="bottom-nav">
+    <div class="scroll-indicator"></div>
 
-  <a href="#top" class="nav-item">
-    <img src="home.png" alt="Home">
-    <span class="label">Home</span>
-  </a>
+  </section>
 
-  <a href="#promises" class="nav-item">
-    <img src="Icon-Clipboard-White.webp" alt="Agenda">
-    <span class="label">Agenda</span>
-  </a>
+  <!-- POLICIES -->
+  <section id="promises" class="promises">
 
-  <a href="#election" class="nav-item">
-    <img src="star-white-icon.webp" alt="Vote">
-    <span class="label">Vote</span>
-  </a>
+    <h2>Policies and Agenda</h2>
 
-</nav>
+    <div class="cards">
 
-<script>
-  const cards = document.querySelectorAll('.card');
+      <article class="card">
+        <h3>Transparency</h3>
+        <p>
+          Make meeting notes accessible to students with support from the secretary.
+        </p>
+      </article>
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting) e.target.classList.add('show');
-    });
-  });
+      <article class="card">
+        <h3>Communication</h3>
+        <p>
+          Strengthen communication between students and student government by gathering feedback.
+        </p>
+      </article>
 
-  cards.forEach(c => observer.observe(c));
+      <article class="card">
+        <h3>Representation</h3>
+        <p>
+          Ensure underrepresented student voices are heard and represented.
+        </p>
+      </article>
 
-  const bg = document.getElementById("bg");
+    </div>
 
-  for(let i=0;i<40;i++){
-    const dot=document.createElement("div");
-    dot.classList.add("dot");
-    dot.style.left=Math.random()*100+"vw";
-    dot.style.top=Math.random()*100+"vh";
-    dot.style.animationDuration=(5+Math.random()*10)+"s";
-    bg.appendChild(dot);
-  }
-</script>
+  </section>
+
+  <!-- ELECTION -->
+  <section id="election" class="election">
+
+    <h2>Election Day</h2>
+
+    <div class="election-content">
+
+      <div class="date">
+        <h3>June 8th</h3>
+      </div>
+
+      <p>
+        Vote for leadership, transparency, and stronger student representation.
+      </p>
+
+    </div>
+
+  </section>
+
+  <footer>
+    Created by Jefferson Rojop
+  </footer>
+
+  <!-- NAVIGATION -->
+  <nav class="bottom-nav">
+
+    <a href="#top" class="nav-item">
+      <img src="home.png" alt="Home">
+      <span class="label">Home</span>
+    </a>
+
+    <a href="#promises" class="nav-item">
+      <img src="Icon-Clipboard-White.webp" alt="Agenda">
+      <span class="label">Agenda</span>
+    </a>
+
+    <a href="#election" class="nav-item">
+      <img src="star-white-icon.webp" alt="Vote">
+      <span class="label">Vote</span>
+    </a>
+
+  </nav>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
