@@ -128,10 +128,25 @@
       transform:translateY(0);
     }
 
+    /* ✅ CARD HOVER FIX */
     .card:hover {
       background:black;
       color:white;
       border-color:white;
+      transform:translateY(-8px);
+    }
+
+    .card p {
+      transition: 0.3s ease;
+      color:#333;
+    }
+
+    .card:hover p {
+      color:white;
+    }
+
+    .card:hover h3 {
+      color:white;
     }
 
     /* ELECTION */
@@ -194,7 +209,6 @@
       transition:0.25s ease;
     }
 
-    /* 👇 ICON HOVER TURN BLACK */
     .nav-item:hover img {
       filter: brightness(0);
       transform: scale(1.1);
@@ -256,17 +270,17 @@
   <div class="cards">
     <div class="card">
       <h3>Transparency</h3>
-      <p>Make meeting notes accessible.</p>
+      <p>Make meeting notes accessible as record with help of secretary.</p>
     </div>
 
     <div class="card">
       <h3>Communication</h3>
-      <p>Create student-government feedback loops.</p>
+      <p>Student goverment-body connection that takes input from students.</p>
     </div>
 
     <div class="card">
       <h3>Representation</h3>
-      <p>Amplify underrepresented voices.</p>
+      <p>Amplify underrepresented voices within our school.</p>
     </div>
   </div>
 </section>
