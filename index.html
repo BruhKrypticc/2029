@@ -18,7 +18,11 @@
 
     html { scroll-behavior: smooth; }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
     body {
       background:black;
@@ -26,7 +30,7 @@
       overflow-x:hidden;
     }
 
-    /* DOT BACKGROUND */
+    /* BACKGROUND DOTS */
     .bg-dots {
       position: fixed;
       inset: 0;
@@ -61,13 +65,18 @@
       z-index:1;
     }
 
-    h1 { font-size:10rem; }
     h2 { font-size:2.5rem; margin-bottom:20px; }
 
     p {
       max-width:700px;
       line-height:1.7;
       color:#d4d4d4;
+    }
+
+    .hero-img {
+      max-width: 85%;
+      width: 800px;
+      margin-bottom: 20px;
     }
 
     .btn {
@@ -88,8 +97,14 @@
     }
 
     /* PROMISES */
-    .promises { background:white; color:black; }
-    .promises p { color:#333; }
+    .promises {
+      background:white;
+      color:black;
+    }
+
+    .promises p {
+      color:#333;
+    }
 
     .cards {
       display:flex;
@@ -120,7 +135,9 @@
     }
 
     /* ELECTION */
-    .election { background:#0a0a0a; }
+    .election {
+      background:#0a0a0a;
+    }
 
     .election-content {
       margin-top:20px;
@@ -136,7 +153,6 @@
       margin-bottom:10px;
     }
 
-    /* FOOTER */
     footer {
       padding:30px;
       text-align:center;
@@ -168,13 +184,20 @@
       align-items:center;
       justify-content:center;
       border-radius:50%;
-      transition:0.25s;
+      transition:0.25s ease;
     }
 
     .nav-item img {
       width:22px;
       height:22px;
       object-fit:contain;
+      transition:0.25s ease;
+    }
+
+    /* 👇 ICON HOVER TURN BLACK */
+    .nav-item:hover img {
+      filter: brightness(0);
+      transform: scale(1.1);
     }
 
     .nav-item:hover {
@@ -203,8 +226,8 @@
     }
 
     @media(max-width:700px){
-      h1{font-size:5rem;}
       h2{font-size:1.8rem;}
+      .hero-img{width:95%;}
     }
   </style>
 </head>
@@ -215,12 +238,18 @@
 
 <!-- HERO -->
 <section id="top">
+  <img src="Untitled411_20260529123840.PNG" class="hero-img">
+
   <h2>For Vice President</h2>
-  <p>Transparency and communication within our student government.</p>
+
+  <p>
+    Transparency and communication within our student government.
+  </p>
+
   <a class="btn" href="#promises">Policies</a>
 </section>
 
-<!-- AGENDA -->
+<!-- PROMISES -->
 <section class="promises" id="promises">
   <h2>Policies and Agenda</h2>
 
@@ -260,7 +289,7 @@
   Created by Jefferson Rojop
 </footer>
 
-<!-- NAV BAR -->
+<!-- NAV -->
 <nav class="bottom-nav">
 
   <a href="#top" class="nav-item">
@@ -305,4 +334,3 @@
 
 </body>
 </html>
-
