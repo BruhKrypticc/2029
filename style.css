@@ -1,0 +1,414 @@
+/* ------------------ */
+/* RESET */
+/* ------------------ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px),
+    #000;
+
+  background-size: 40px 40px;
+
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ------------------ */
+/* TYPOGRAPHY */
+/* ------------------ */
+
+h1,
+h2,
+h3 {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+p,
+.btn,
+.nav-item,
+.label {
+  font-family: "Roboto Mono", monospace;
+}
+
+h2 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+p {
+  max-width: 700px;
+  line-height: 1.7;
+  color: #d4d4d4;
+}
+
+/* ------------------ */
+/* SECTIONS */
+/* ------------------ */
+
+section {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 40px;
+}
+
+/* ------------------ */
+/* HERO */
+/* ------------------ */
+
+.hero h2 {
+  font-size: 5rem;
+}
+
+.hero-img {
+  width: 800px;
+  max-width: 85%;
+  margin-bottom: 20px;
+}
+
+/* Fade In */
+
+.hero-img,
+.hero h2,
+.hero p,
+.btn {
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero h2 {
+  animation-delay: .2s;
+}
+
+.hero p {
+  animation-delay: .4s;
+}
+
+.btn {
+  animation-delay: .6s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button */
+
+.btn {
+  margin-top: 30px;
+
+  padding: 15px 40px;
+
+  border: 2px solid white;
+
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  transition: .3s ease;
+}
+
+.btn:hover {
+  background: white;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* ------------------ */
+/* SCROLL INDICATOR */
+/* ------------------ */
+
+.scroll-indicator {
+  width: 22px;
+  height: 38px;
+
+  border: 2px solid white;
+  border-radius: 20px;
+
+  margin-top: 50px;
+
+  position: relative;
+}
+
+.scroll-indicator::before {
+  content: "";
+
+  position: absolute;
+
+  width: 4px;
+  height: 8px;
+
+  border-radius: 10px;
+  background: white;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  top: 7px;
+
+  animation: scrollAnim 2s infinite;
+}
+
+@keyframes scrollAnim {
+  0% {
+    opacity: 1;
+    top: 7px;
+  }
+
+  100% {
+    opacity: 0;
+    top: 20px;
+  }
+}
+
+/* ------------------ */
+/* POLICIES */
+/* ------------------ */
+
+.promises {
+  background: white;
+  color: black;
+}
+
+.promises p {
+  color: #333;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.card {
+  width: 240px;
+
+  padding: 30px;
+
+  border: 2px solid black;
+
+  opacity: 0;
+  transform: translateY(40px);
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    color .3s ease,
+    opacity .5s ease;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  background: black;
+  color: white;
+  border-color: white;
+
+  transform: translateY(-8px);
+}
+
+.card:hover h3,
+.card:hover p {
+  color: white;
+}
+
+/* ------------------ */
+/* ELECTION */
+/* ------------------ */
+
+.election {
+  background: #0a0a0a;
+}
+
+.election-content {
+  margin-top: 20px;
+
+  max-width: 700px;
+
+  padding: 30px;
+
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+
+  text-align: left;
+}
+
+.date {
+  display: inline-block;
+
+  padding: 20px 40px;
+  margin-bottom: 20px;
+
+  border: 2px solid white;
+}
+
+.date h3 {
+  font-size: 5rem;
+  letter-spacing: 4px;
+}
+
+/* ------------------ */
+/* FOOTER */
+/* ------------------ */
+
+footer {
+  padding: 30px;
+
+  text-align: center;
+
+  color: #888;
+
+  border-top: 1px solid #222;
+}
+
+/* ------------------ */
+/* NAVIGATION */
+/* ------------------ */
+
+.bottom-nav {
+  position: fixed;
+
+  bottom: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 18px;
+
+  padding: 12px 18px;
+
+  background: rgba(20,20,20,.85);
+
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 999px;
+
+  backdrop-filter: blur(10px);
+
+  z-index: 999;
+}
+
+.nav-item {
+  width: 44px;
+  height: 44px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  transition: .25s ease;
+}
+
+.nav-item img {
+  width: 22px;
+  height: 22px;
+
+  object-fit: contain;
+
+  transition: .25s ease;
+}
+
+.nav-item:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+.nav-item:hover img {
+  filter: brightness(0);
+  transform: scale(1.1);
+}
+
+.nav-item.active {
+  background: white;
+}
+
+.nav-item.active img {
+  filter: brightness(0);
+}
+
+.label {
+  position: absolute;
+
+  bottom: 55px;
+
+  padding: 6px 10px;
+
+  background: white;
+  color: black;
+
+  border-radius: 6px;
+
+  font-size: 12px;
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition: .2s ease;
+
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.nav-item:hover .label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------ */
+/* MOBILE */
+/* ------------------ */
+
+@media (max-width: 700px) {
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .hero h2 {
+    font-size: 3rem;
+  }
+
+  .hero-img {
+    width: 95%;
+  }
+
+  .date h3 {
+    font-size: 3rem;
+  }
+}
